@@ -39,13 +39,6 @@
 import { ref, reactive, computed } from 'vue';
 import { StackDS } from '../core/StackDS';
 
-interface StackElementItem<T> {
-  id: number; // Unique ID for animation key
-  value: T;
-}
-
-let nextId = 0; // For unique IDs
-
 const stackDS = reactive(new StackDS<number>());
 const inputValue = ref<number | null>(null);
 const operationResult = ref<string | number | null | undefined>(null);
@@ -87,7 +80,6 @@ const handlePush = () => {
     operationResult.value = "请输入要入栈的值";
     return;
   }
-  const newId = nextId++;
   // For animation, we'd ideally know the ID of the element *before* it's added
   // This requires a bit more complex state management or assumptions.
   // Let's assume the new element will be at the "top" (end of array, visually top).

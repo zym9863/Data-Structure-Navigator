@@ -42,13 +42,6 @@
 import { ref, reactive, computed } from 'vue';
 import { QueueDS } from '../core/QueueDS';
 
-interface QueueElementItem<T> {
-  id: number; // Unique ID for animation key
-  value: T;
-}
-
-let nextId = 0; // For unique IDs
-
 const queueDS = reactive(new QueueDS<number>());
 const inputValue = ref<number | null>(null);
 const operationResult = ref<string | number | null | undefined>(null);
